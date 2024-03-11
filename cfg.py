@@ -20,6 +20,7 @@ def get_token(node):
                 return ' '.join([str(var.type), var.name])
         else:
             return str(node.type)
+
 for contract in slither.contracts:
     # 全局变量 var
     for var in contract.variables:
