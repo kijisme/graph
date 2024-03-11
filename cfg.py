@@ -11,20 +11,6 @@ command = f"solc-select use {version}"
 subprocess.run(command, shell=True)
 slither = Slither(path)
 
-# for contract in slither.contracts:
-#     # 全局变量 var
-#     for var in contract.variables:
-#         print('Variable.State', var.visibility, var.name, str(var.type), var.source_mapping.lines)
-#     for function in contract.functions + contract.modifiers:
-#         # 函数节点func
-#         print(function.function_type, function.visibility, function.full_name, function.source_mapping.lines)
-#         # 局部变量 var
-#         for var in function.variables:
-#             print('Variable.Local', var.visibility, var.name, str(var.type), var.source_mapping.lines)
-#         for node in function.nodes:
-#             # 函数内部节点node
-#             token = get_token(node)
-#             print(str(node.type), node.node_id, token, node.source_mapping.lines)
 dataset_dir = '/workspaces/graph'
 
 def get_expression(node):
@@ -139,7 +125,7 @@ def get_cfg(file_item, list_sol_file_vul_info):
                                                 node_vuln_info=node_vuln_info)
                         # 添加边
                         func_graph.add_edge(node.node_id, 
-                                           false_node.node_id,
+                                            false_node.node_id,
                                             edge_type='if_false')      
                 # 添加顺序边
                 else:
@@ -155,14 +141,14 @@ def get_cfg(file_item, list_sol_file_vul_info):
                                                 node_expression=expression,
                                                 node_code_lines=son_node.source_mapping.lines,
                                                 node_vuln_info=node_vuln_info)
-                    # 添加边
-                    func_graph.add_edge(node.node_id,
-                                        son_node.node_id,
-                                        edge_type='next')
+                        # 添加边
+                        func_graph.add_edge(node.node_id,
+                                            son_node.node_id,
+                                            edge_type='next')
 
                 # 统计变量使用
                 local_variables_use = set(node.local_variables_read + node.local_variables_written)
-                state_variables_use = set(function.state_variables_read + function.state_variables_written)
+                state_variables_use = set(node.state_variables_read + node.state_variables_written)
                 # 添加局部变量边
                 if local_variables_use:
                     for var in local_variables_use:
