@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_6_Library {
+label = "Library"
+"6_library_func" [label="library_func"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

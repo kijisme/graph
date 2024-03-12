@@ -5,11 +5,11 @@ import networkx as nx
 from slither.slither import Slither
 from slither.core.cfg.node import NodeType
 
-path = '/workspaces/graph/smartbugs/other/crypto_roulette.sol'
-version = '0.4.19'
-command = f"solc-select use {version}"
-subprocess.run(command, shell=True)
-slither = Slither(path)
+# path = '/workspaces/graph/inherite.sol'
+# version = '0.5.0'
+# command = f"solc-select use {version}"
+# subprocess.run(command, shell=True)
+# slither = Slither(path)
 
 dataset_dir = '/workspaces/graph'
 
@@ -202,9 +202,10 @@ def get_cfg(file_item, list_sol_file_vul_info):
     return sol_file_graph
 
 if __name__ == "__main__":
-    path = 'smartbugs/other/crypto_roulette.sol'
-    name = 'smartbugs/other/crypto_roulette.sol'
-    version = '0.4.19'
+    # /workspaces/graph/
+    path = 'inherite.sol'
+    name = 'inherite.sol'
+    version = '0.5.0'
 
     file_item = {
         'path':path,

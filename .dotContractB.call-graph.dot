@@ -1,0 +1,13 @@
+strict digraph {
+subgraph cluster_64_ContractB {
+label = "ContractB"
+"64_constructor" [label="constructor"]
+"64_my_func_b" [label="my_func_b"]
+"64_my_func_a" [label="my_func_a"]
+"64_my_second_func_b" [label="my_second_func_b"]
+"64_my_func_a" -> "64_my_second_func_b"
+"64_my_func_b" -> "64_my_second_func_b"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

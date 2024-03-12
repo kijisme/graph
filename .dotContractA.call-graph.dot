@@ -1,0 +1,11 @@
+strict digraph {
+subgraph cluster_23_ContractA {
+label = "ContractA"
+"23_my_func_a" [label="my_func_a"]
+"23_slitherConstructorVariables" [label="slitherConstructorVariables"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"keccak256()" 
+"23_my_func_a" -> "keccak256()"
+}
+}
